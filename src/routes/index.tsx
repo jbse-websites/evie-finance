@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { submitLead } from "../lib/leads";
 import {
   ArrowRight,
   ArrowDown,
@@ -67,7 +68,7 @@ function AmberButton({
   return (
     <button
       {...props}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-amber-cta px-7 py-3.5 text-base font-semibold text-amber-cta-foreground transition-all hover:brightness-110 hover:translate-y-[-1px] glow-amber ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-amber-cta px-7 py-3.5 text-base font-semibold text-amber-cta-foreground transition-all hover:brightness-110 hover:translate-y-[-1px] glow-amber disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none ${className}`}
     >
       {children}
     </button>
@@ -408,6 +409,34 @@ function FeaturedIn() {
 
 function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [evChoice, setEvChoice] = useState("");
+  const [budget, setBudget] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setFormError(null);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await submitLead({
+        data: {
+          first: fd.get("first") as string,
+          last: fd.get("last") as string,
+          email: fd.get("email") as string,
+          mobile: fd.get("mobile") as string,
+          ev: evChoice,
+          budget,
+        },
+      });
+      setSubmitted(true);
+    } catch {
+      setFormError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section
@@ -452,10 +481,7 @@ function LeadForm() {
         <div className="relative">
           <div className="absolute -inset-4 bg-electric/10 blur-3xl rounded-full pointer-events-none" />
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
+            onSubmit={handleSubmit}
             className="relative rounded-2xl border border-border bg-surface-elevated p-7 sm:p-9 shadow-[var(--shadow-card)] space-y-5"
           >
             {submitted ? (
@@ -471,15 +497,15 @@ function LeadForm() {
             ) : (
               <>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Field id="first" label="First name" placeholder="Alex" />
-                  <Field id="last" label="Last name" placeholder="Tane" />
+                  <Field id="first" name="first" label="First name" placeholder="Alex" required />
+                  <Field id="last" name="last" label="Last name" placeholder="Tane" required />
                 </div>
-                <Field id="email" label="Email" type="email" placeholder="you@email.co.nz" />
-                <Field id="mobile" label="Mobile" type="tel" placeholder="021 123 4567" />
+                <Field id="email" name="email" label="Email" type="email" placeholder="you@email.co.nz" required />
+                <Field id="mobile" name="mobile" label="Mobile" type="tel" placeholder="021 123 4567" required />
 
                 <div className="space-y-1.5">
                   <Label className="text-sm">Which EV interests you?</Label>
-                  <Select>
+                  <Select value={evChoice} onValueChange={setEvChoice}>
                     <SelectTrigger className="bg-background/50 border-border h-11">
                       <SelectValue placeholder="Pick one (or 'not sure')" />
                     </SelectTrigger>
@@ -498,7 +524,7 @@ function LeadForm() {
 
                 <div className="space-y-1.5">
                   <Label className="text-sm">Rough budget</Label>
-                  <Select>
+                  <Select value={budget} onValueChange={setBudget}>
                     <SelectTrigger className="bg-background/50 border-border h-11">
                       <SelectValue placeholder="Select a range" />
                     </SelectTrigger>
@@ -512,8 +538,14 @@ function LeadForm() {
                   </Select>
                 </div>
 
-                <AmberButton type="submit" className="w-full mt-2">
-                  Get My Rate — It's Free <ArrowRight className="w-4 h-4" />
+                {formError && (
+                  <p className="text-sm text-destructive text-center rounded-lg border border-destructive/30 bg-destructive/10 p-3">
+                    {formError}
+                  </p>
+                )}
+
+                <AmberButton type="submit" className="w-full mt-2" disabled={submitting}>
+                  {submitting ? "Sending…" : "Get My Rate — It's Free"} <ArrowRight className="w-4 h-4" />
                 </AmberButton>
                 <p className="text-xs text-muted-foreground text-center">
                   By submitting you agree to be contacted about EV finance. No spam, ever.
