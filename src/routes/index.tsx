@@ -95,17 +95,16 @@ function Nav() {
   return (
     <header className="absolute top-0 left-0 right-0 z-30">
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-        <Wordmark className="text-2xl" />
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#calculator" className="hover:text-foreground transition-colors">Savings</a>
-          <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
-          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+        <nav className="hidden md:flex items-center gap-6 text-base text-muted-foreground">
+          <a href="#calculator" className="px-3 py-2 hover:text-foreground transition-colors">Savings</a>
+          <a href="#how" className="px-3 py-2 hover:text-foreground transition-colors">How it works</a>
+          <a href="#faq" className="px-3 py-2 hover:text-foreground transition-colors">FAQ</a>
         </nav>
         <a
           href="#apply"
-          className="hidden sm:inline-flex items-center gap-1.5 rounded-md border border-border bg-surface/60 backdrop-blur px-4 py-2 text-sm font-medium hover:border-electric/60 transition-colors"
+          className="hidden sm:inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 backdrop-blur px-8 py-4 text-base font-semibold hover:border-electric/60 transition-colors"
         >
-          Apply now <ArrowRight className="w-3.5 h-3.5" />
+          Apply now <ArrowRight className="w-4 h-4" />
         </a>
       </div>
     </header>
@@ -114,7 +113,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[100vh] flex items-center isolate">
+    <section className="relative min-h-[100dvh] isolate">
       <div className="absolute inset-0 -z-10">
         <img
           src={heroImg}
@@ -131,9 +130,10 @@ function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-background" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-24 w-full">
+      <div className="relative mx-auto max-w-7xl px-6 w-full min-h-[100dvh] flex flex-col justify-center pt-20 pb-24">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-3 py-1.5 text-xs font-medium text-electric mb-6">
+          <Wordmark className="text-[3.5rem] sm:text-[5.6rem] lg:text-[7.7rem] leading-none tracking-tighter" />
+          <div className="flex w-fit items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-3 py-1.5 text-xs font-medium text-electric mt-3">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />
@@ -141,7 +141,7 @@ function Hero() {
             New Zealand's #1 EV finance broker
           </div>
 
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight mt-6">
             Go Electric.<br />
             Get Funded.<br />
             <span className="text-electric">Today.</span>
