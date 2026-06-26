@@ -197,7 +197,7 @@ function StatsBar() {
               <s.icon className="w-5 h-5 text-electric" />
             </div>
             <div className="min-w-0">
-              <div className="font-display text-2xl sm:text-3xl font-bold leading-none">
+              <div className="font-display text-xl lg:text-3xl font-bold leading-none">
                 {s.value}
                 {s.suffix && (
                   <span className="text-sm font-medium text-muted-foreground">{s.suffix}</span>
@@ -315,7 +315,7 @@ function StatTile({
         : "text-foreground border-border bg-background/40";
   return (
     <div className={`rounded-lg border p-3 text-center ${toneClass}`}>
-      <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</div>
       <div className="font-display font-bold text-xl mt-1">{value}</div>
     </div>
   );
@@ -677,7 +677,7 @@ function FooterCol({ title, links }: { title: string; links: string[] }) {
       <ul className="space-y-2.5 text-sm text-muted-foreground">
         {links.map((l) => (
           <li key={l}>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="#" className="block py-2 -my-2 hover:text-foreground transition-colors">
               {l}
             </a>
           </li>
