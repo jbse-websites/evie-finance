@@ -53,9 +53,33 @@ export const Route = createFileRoute("/")({
 
 function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <span className={`font-display font-bold tracking-tight ${className}`}>
-      <span className="text-electric">EV</span>
-      <span className="text-foreground">NOW</span>
+    <span className={`inline-flex items-center gap-[0.15em] font-display font-bold tracking-tight ${className}`}>
+      <svg
+        viewBox="0 0 56 76"
+        style={{ height: "0.85em", width: "auto", flexShrink: 0 }}
+        fill="none"
+        aria-hidden="true"
+      >
+        <polyline
+          points="4,6 22,38 4,70"
+          stroke="var(--color-electric)"
+          strokeWidth="8.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.3"
+        />
+        <polyline
+          points="26,6 44,38 26,70"
+          stroke="var(--color-electric)"
+          strokeWidth="8.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span>
+        <span className="text-electric">EV</span>
+        <span className="text-foreground">NOW</span>
+      </span>
     </span>
   );
 }
@@ -132,7 +156,12 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 w-full min-h-[100dvh] flex flex-col justify-center pt-20 pb-24">
         <div className="max-w-2xl">
-          <Wordmark className="text-[3.5rem] sm:text-[5.6rem] lg:text-[7.7rem] leading-none tracking-tighter" />
+          <a href="#apply" className="group relative block w-fit">
+            <Wordmark className="text-[3.5rem] sm:text-[5.6rem] lg:text-[7.7rem] leading-none tracking-tighter min-[1440px]:-ml-[6rem] transition-opacity duration-150 group-hover:opacity-80" />
+            <span className="pointer-events-none absolute left-full top-1/2 -translate-y-1/2 ml-6 flex items-center gap-1.5 whitespace-nowrap rounded-full border border-electric/40 bg-electric/10 px-3 py-1 text-sm font-medium text-electric opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+              Apply now <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </a>
           <div className="flex w-fit items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-3 py-1.5 text-xs font-medium text-electric mt-3">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric opacity-75" />
