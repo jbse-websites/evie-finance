@@ -1,0 +1,784 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EV Now — Magazine Ad Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 60px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .label {
+      color: #555;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: -40px;
+    }
+
+    /* ── A4 FULL PAGE ── */
+    .ad {
+      width: 794px;
+      height: 1123px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── HALF PAGE LANDSCAPE ── */
+    .ad-half {
+      width: 794px;
+      height: 560px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media print {
+      body { background: #000; padding: 0; gap: 0; }
+      .label { display: none; }
+      .ad, .ad-half { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<p class="label">EV Now · Full Page A4 · NZ Autocar / EVs & Beyond</p>
+
+<!-- ════════════════════════════════════════ FULL PAGE AD ════════════════════════════════════════ -->
+<div class="ad">
+<svg width="794" height="1123" viewBox="0 0 794 1123" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Deep space background -->
+    <radialGradient id="bgGlow" cx="50%" cy="52%" r="55%">
+      <stop offset="0%"   stop-color="#020B1A"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Cinematic blue atmosphere behind car -->
+    <radialGradient id="carAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#0B3A5C" stop-opacity=".55"/>
+      <stop offset="60%"  stop-color="#041626" stop-opacity=".3"/>
+      <stop offset="100%" stop-color="#000"     stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Car body gradient — gives 3D form -->
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1C2A3A"/>
+      <stop offset="40%" stop-color="#0D1824"/>
+      <stop offset="100%" stop-color="#060B12"/>
+    </linearGradient>
+
+    <!-- Roof panel — catches more light -->
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#263748"/>
+      <stop offset="100%" stop-color="#131E2A"/>
+    </linearGradient>
+
+    <!-- Window glass -->
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0A2845" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#061830" stop-opacity=".88"/>
+    </linearGradient>
+
+    <!-- Headlight beam — cone of light on tarmac -->
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#4AC0FF" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#4AC0FF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ground reflection gradient -->
+    <linearGradient id="reflGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0E3A5A" stop-opacity=".3"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ground plane gradient -->
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#030810"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+
+    <!-- Wheel gradient -->
+    <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#1E2E40"/>
+      <stop offset="70%"  stop-color="#0A1520"/>
+      <stop offset="100%" stop-color="#050C15"/>
+    </radialGradient>
+
+    <!-- Character line glow -->
+    <filter id="charGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Headlight glow -->
+    <filter id="headGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Soft drop shadow for car -->
+    <filter id="carShadow" x="-5%" y="-10%" width="115%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#0EA5E9" flood-opacity=".12"/>
+    </filter>
+
+    <!-- Ground glow light pool -->
+    <radialGradient id="poolGrad" cx="50%" cy="20%" r="50%">
+      <stop offset="0%"  stop-color="#0EA5E9" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clip for reflection fade -->
+    <linearGradient id="reflFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fff" stop-opacity=".25"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="reflMask">
+      <rect width="794" height="80" fill="url(#reflFade)"/>
+    </mask>
+  </defs>
+
+  <!-- Background -->
+  <rect width="794" height="1123" fill="url(#bgGlow)"/>
+
+  <!-- Cinematic aura behind car -->
+  <ellipse cx="397" cy="530" rx="400" ry="260" fill="url(#carAura)"/>
+
+  <!-- Ground plane -->
+  <rect x="0" y="660" width="794" height="463" fill="url(#groundGrad)"/>
+
+  <!-- Ground horizon line -->
+  <line x1="0" y1="660" x2="794" y2="660" stroke="#0EA5E9" stroke-width=".5" opacity=".25"/>
+
+  <!-- Headlight beam cone (before car so car renders on top) -->
+  <polygon points="62,578 62,610 -120,540 -120,648" fill="url(#beamGrad)" opacity=".8"/>
+  <polygon points="62,590 62,600 -60,550 -60,638" fill="url(#beamGrad)" opacity=".4"/>
+
+  <!-- Ground light pool under car -->
+  <ellipse cx="370" cy="660" rx="340" ry="45" fill="url(#poolGrad)"/>
+
+  <!-- ── THE CAR ── centered in the ad, dramatic side profile ── -->
+  <g transform="translate(397,640)" filter="url(#carShadow)">
+
+    <!-- Car positioned: width ≈ 660px, ground at y=0 -->
+
+    <!-- Lower body / sill / rocker panel -->
+    <path d="
+      M -295,0
+      C -300,0 -305,-8 -305,-14
+      L -302,-22
+      L  295,-22
+      L  298,-14
+      C  300,-8 298,0 295,0
+      Z"
+      fill="#040810"/>
+
+    <!-- Main body silhouette — fastback coupe proportions -->
+    <path d="
+      M -295,0
+      C -300,0 -308,-12 -308,-20
+      L -305,-35
+      C -302,-48 -295,-58 -280,-68
+      L -240,-88
+      C -218,-100 -195,-112 -170,-120
+      L -130,-132
+      C -110,-137 -88,-142 -62,-145
+      L  -10,-148
+      C   20,-149  55,-148  88,-146
+      L  155,-143
+      C  185,-141 210,-137 228,-130
+      L  268,-112
+      C  285,-104 295,-94 300,-82
+      L  308,-60
+      C  312,-46 312,-30 308,-18
+      L  305,-8
+      C  302,0 298,0 295,0
+      Z"
+      fill="url(#bodyGrad)"/>
+
+    <!-- Roof panel — distinct, lighter -->
+    <path d="
+      M -62,-145
+      L  -10,-148
+      C   20,-149  55,-148  88,-146
+      L  155,-143
+      C  185,-141 210,-138 228,-130
+      L  268,-112
+      C  256,-118 240,-123 218,-127
+      L  165,-134
+      C  138,-138 108,-141  72,-142
+      L   18,-143
+      C  -12,-143 -40,-142 -64,-140
+      L -120,-136
+      C -148,-132 -168,-126 -182,-118
+      L -220,-104
+      C -235,-110 -248,-120 -258,-132
+      L -270,-148
+      C -252,-157 -228,-162 -200,-165
+      L -155,-168
+      C -128,-170  -98,-170  -62,-168
+      Z"
+      fill="url(#roofGrad)" opacity=".85"/>
+
+    <!-- Hood surface — separate plane -->
+    <path d="
+      M -308,-20
+      L -305,-35
+      C -302,-48 -295,-58 -280,-68
+      L -240,-88
+      C -218,-100 -195,-112 -170,-120
+      L -130,-132
+      C -112,-137 -92,-141 -70,-143
+      L -64,-140
+      C -92,-135 -118,-128 -142,-118
+      L -178,-104
+      C -200,-92 -218,-78 -232,-60
+      L -252,-30
+      L -308,-20
+      Z"
+      fill="#0F1E2D" opacity=".9"/>
+
+    <!-- Windshield -->
+    <path d="
+      M -70,-143
+      L -62,-145
+      C -40,-148 -14,-149  14,-149
+      L  -6,-102
+      C  -22,-100 -38,-97 -52,-93
+      L  -92,-80
+      C -108,-74 -122,-66 -134,-56
+      L -174,-22
+      L -232,-60
+      C -218,-78 -200,-92 -178,-104
+      L -142,-118
+      C -118,-128 -92,-135 -64,-140
+      Z"
+      fill="url(#glassGrad)"/>
+
+    <!-- Rear window / fastback -->
+    <path d="
+      M  14,-149
+      C  46,-148  82,-146 120,-143
+      L 168,-137
+      C  196,-132 220,-126 238,-116
+      L  270,-98
+      L  305,-30
+      L  268,-18
+      L  262,-38
+      C  256,-58 240,-76 218,-88
+      L  180,-106
+      C  158,-116 132,-122 100,-126
+      L   50,-130
+      C   20,-132  -4,-132 -20,-130
+      L   -6,-102
+      Z"
+      fill="url(#glassGrad)" opacity=".92"/>
+
+    <!-- B-pillar -->
+    <rect x="-8" y="-149" width="8" height="50" fill="#060F18" opacity=".95"/>
+
+    <!-- Side mirror — driver side (rear-mounted on door) -->
+    <path d="M -142,-96 L -128,-96 L -122,-80 L -148,-80 Z" fill="#0A1828"/>
+    <path d="M -143,-97 L -120,-97 L -120,-95 L -143,-95 Z" fill="#0EA5E9" opacity=".5"/>
+
+    <!-- Body character crease line (the most important premium detail) -->
+    <path d="
+      M -300,-42
+      C -280,-46 -250,-52 -215,-58
+      L -165,-64
+      C -130,-68 -90,-70 -50,-70
+      L   50,-70
+      C   95,-70 138,-67 175,-60
+      L  230,-48
+      C  258,-40 280,-30 295,-18"
+      fill="none" stroke="#1A6EA0" stroke-width="1.5" opacity=".6"/>
+    <!-- Main character line highlight -->
+    <path d="
+      M -295,-40
+      C -268,-45 -235,-52 -195,-58
+      L -148,-63
+      C -112,-67 -72,-69 -30,-69
+      L   55,-69
+      C   98,-68 140,-65 178,-58
+      L  232,-46
+      C  260,-38 282,-28 298,-16"
+      fill="none" stroke="#4AC0FF" stroke-width=".9"
+      filter="url(#charGlow)" opacity=".85"/>
+
+    <!-- Lower body accent line -->
+    <path d="M -295,-24 L 290,-24"
+      fill="none" stroke="#0D3A5A" stroke-width="1" opacity=".6"/>
+
+    <!-- Door shut lines -->
+    <line x1="-20" y1="-148" x2="-20" y2="0" stroke="#060F18" stroke-width="1.5"/>
+    <line x1="108" y1="-145" x2="108" y2="0" stroke="#060F18" stroke-width="1.2"/>
+
+    <!-- Front door handle -->
+    <rect x="-105" y="-82" width="40" height="7" rx="3.5" fill="#0D2035" stroke="#1A4060" stroke-width=".5"/>
+    <rect x="-103" y="-81" width="36" height="5" rx="2.5" fill="#0F2840" opacity=".8"/>
+
+    <!-- Rear door handle -->
+    <rect x="20" y="-82" width="40" height="7" rx="3.5" fill="#0D2035" stroke="#1A4060" stroke-width=".5"/>
+
+    <!-- ── FRONT HEADLIGHT CLUSTER ── -->
+    <!-- Main housing -->
+    <path d="M -308,-30 L -302,-70 L -262,-70 L -270,-30 Z"
+      fill="#04101C" stroke="#0B2A40" stroke-width=".8"/>
+    <!-- LED DRL strip (top) -->
+    <path d="M -300,-68 L -265,-68 L -268,-62 L -298,-62 Z"
+      fill="none" stroke="#4ACFFF" stroke-width="1.5" opacity=".9"
+      filter="url(#headGlow)"/>
+    <!-- LED main beam dots -->
+    <circle cx="-288" cy="-50" r="6" fill="#0B2840" stroke="#2090C0" stroke-width="1"/>
+    <circle cx="-288" cy="-50" r="3" fill="#80D4FF" opacity=".9" filter="url(#headGlow)"/>
+    <circle cx="-276" cy="-50" r="6" fill="#0B2840" stroke="#2090C0" stroke-width="1"/>
+    <circle cx="-276" cy="-50" r="3" fill="#80D4FF" opacity=".9" filter="url(#headGlow)"/>
+    <circle cx="-264" cy="-48" r="5" fill="#0B2840" stroke="#2090C0" stroke-width="1"/>
+    <circle cx="-264" cy="-48" r="2.5" fill="#80D4FF" opacity=".9" filter="url(#headGlow)"/>
+    <!-- Amber DRL line -->
+    <line x1="-305" y1="-36" x2="-272" y2="-34" stroke="#F59E0B" stroke-width="2" opacity=".7" filter="url(#headGlow)"/>
+
+    <!-- ── REAR LIGHT CLUSTER ── -->
+    <path d="M 302,-28 L 305,-68 L 280,-76 L 275,-28 Z"
+      fill="#04060C"/>
+    <!-- Full-width LED bar -->
+    <line x1="275" y1="-46" x2="304" y2="-44" stroke="#DC2626" stroke-width="2.5" opacity=".9" filter="url(#headGlow)"/>
+    <line x1="275" y1="-52" x2="302" y2="-50" stroke="#EF4444" stroke-width="1" opacity=".6" filter="url(#headGlow)"/>
+    <!-- EVNOW tail strip extends across the full rear -->
+    <line x1="276" y1="-30" x2="298" y2="-30" stroke="#991111" stroke-width="1.5" opacity=".5"/>
+
+    <!-- Charge port (rear quarter panel) -->
+    <circle cx="258" cy="-78" r="7" fill="#040E18" stroke="#1A4020" stroke-width="1"/>
+    <circle cx="258" cy="-78" r="4" fill="#0A2010" stroke="#4ADE80" stroke-width=".8" opacity=".8"/>
+    <circle cx="258" cy="-78" r="2" fill="#84CC16" opacity=".9" filter="url(#headGlow)"/>
+
+    <!-- ── FRONT WHEEL ── -->
+    <g transform="translate(-175,0)">
+      <!-- Tyre -->
+      <circle r="62" fill="#04090F" stroke="#0D1C28" stroke-width="3"/>
+      <!-- Rim -->
+      <circle r="48" fill="url(#wheelGrad)" stroke="#0F2035" stroke-width="1.5"/>
+      <!-- Hub -->
+      <circle r="9" fill="#0A1828" stroke="#1A3555" stroke-width="1.5"/>
+      <circle r="4" fill="#1A4A7A"/>
+      <!-- 10 turbine spokes -->
+      <g stroke="#1E4060" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+        <line x1="0" y1="-9"  x2="-14" y2="-46"/>
+        <line x1="9" y1="-2"  x2="37"  y2="-30"/>
+        <line x1="9" y1="4"   x2="47"   y2="12"/>
+        <line x1="4" y1="9"   x2="24"   y2="44"/>
+        <line x1="-4" y1="9"  x2="-10"  y2="47"/>
+        <line x1="-9" y1="4"  x2="-44"  y2="18"/>
+        <line x1="-9" y1="-2" x2="-45"  y2="-14"/>
+        <line x1="-6" y1="-8" x2="-28"  y2="-40"/>
+        <line x1="0" y1="-9"  x2="10"   y2="-47"/>
+        <line x1="6" y1="-8"  x2="38"   y2="-16"/>
+      </g>
+      <!-- Spoke highlight (leading edge) -->
+      <g stroke="#3A7AAA" stroke-width="1.5" stroke-linecap="round" opacity=".5">
+        <line x1="0" y1="-9"  x2="-14" y2="-46"/>
+        <line x1="9" y1="4"   x2="47"   y2="12"/>
+        <line x1="-9" y1="4"  x2="-44"  y2="18"/>
+      </g>
+      <!-- Brake disc peek -->
+      <circle r="30" fill="none" stroke="#0D2030" stroke-width="1" opacity=".4"/>
+      <!-- Valve stem -->
+      <rect x="-1.5" y="47" width="3" height="6" rx="1.5" fill="#1A3555"/>
+    </g>
+
+    <!-- ── REAR WHEEL ── -->
+    <g transform="translate(178,0)">
+      <circle r="62" fill="#04090F" stroke="#0D1C28" stroke-width="3"/>
+      <circle r="48" fill="url(#wheelGrad)" stroke="#0F2035" stroke-width="1.5"/>
+      <circle r="9" fill="#0A1828" stroke="#1A3555" stroke-width="1.5"/>
+      <circle r="4" fill="#1A4A7A"/>
+      <g stroke="#1E4060" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+        <line x1="0" y1="-9"  x2="-14" y2="-46"/>
+        <line x1="9" y1="-2"  x2="37"  y2="-30"/>
+        <line x1="9" y1="4"   x2="47"   y2="12"/>
+        <line x1="4" y1="9"   x2="24"   y2="44"/>
+        <line x1="-4" y1="9"  x2="-10"  y2="47"/>
+        <line x1="-9" y1="4"  x2="-44"  y2="18"/>
+        <line x1="-9" y1="-2" x2="-45"  y2="-14"/>
+        <line x1="-6" y1="-8" x2="-28"  y2="-40"/>
+        <line x1="0" y1="-9"  x2="10"   y2="-47"/>
+        <line x1="6" y1="-8"  x2="38"   y2="-16"/>
+      </g>
+      <g stroke="#3A7AAA" stroke-width="1.5" stroke-linecap="round" opacity=".5">
+        <line x1="0" y1="-9"  x2="-14" y2="-46"/>
+        <line x1="9" y1="4"   x2="47"   y2="12"/>
+        <line x1="-9" y1="4"  x2="-44"  y2="18"/>
+      </g>
+      <circle r="30" fill="none" stroke="#0D2030" stroke-width="1" opacity=".4"/>
+      <rect x="-1.5" y="47" width="3" height="6" rx="1.5" fill="#1A3555"/>
+    </g>
+
+    <!-- Wheel arch shadows -->
+    <ellipse cx="-175" cy="2" rx="64" ry="8" fill="#000" opacity=".6"/>
+    <ellipse cx="178"  cy="2" rx="64" ry="8" fill="#000" opacity=".6"/>
+
+    <!-- Ground shadow under car -->
+    <ellipse cx="0" cy="4" rx="280" ry="10" fill="#000" opacity=".7"/>
+
+  </g>
+  <!-- END CAR GROUP -->
+
+  <!-- Car reflection in wet tarmac -->
+  <g transform="translate(397,660) scale(1,-1)" mask="url(#reflMask)" opacity=".18">
+    <!-- Simplified body silhouette for reflection -->
+    <path d="
+      M -295,0 C -300,0 -308,-12 -308,-20 L -305,-35
+      C -302,-48 -295,-58 -280,-68 L -240,-88
+      C -218,-100 -195,-112 -170,-120 L -130,-132
+      C -110,-137 -88,-142 -62,-145 L -10,-148
+      C 20,-149 55,-148 88,-146 L 155,-143
+      C 185,-141 210,-137 228,-130 L 268,-112
+      C 285,-104 295,-94 300,-82 L 308,-60
+      C 312,-46 312,-30 308,-18 L 305,-8
+      C 302,0 298,0 295,0 Z"
+      fill="#0B2A40"/>
+    <!-- Headlight in reflection -->
+    <circle cx="-280" cy="-48" r="4" fill="#4ACFFF" opacity=".5"/>
+    <!-- Tail light in reflection -->
+    <line x1="275" y1="-44" x2="304" y2="-42" stroke="#DC2626" stroke-width="2" opacity=".5"/>
+  </g>
+
+  <!-- ── COPY SECTION ── -->
+
+  <!-- Thin divider -->
+  <line x1="56" y1="720" x2="738" y2="720" stroke="#0EA5E9" stroke-width=".6" opacity=".4"/>
+
+  <!-- Main headline -->
+  <text x="56" y="800" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="84" font-weight="700"
+    letter-spacing="-3">
+    It's not about
+  </text>
+  <text x="56" y="895" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="84" font-weight="700"
+    letter-spacing="-3">
+    the savings.
+  </text>
+
+  <!-- Subheadline -->
+  <text x="58" y="944" fill="#4AC0FF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="22" font-weight="500"
+    letter-spacing="-.3">
+    It's about what you drive home.
+  </text>
+
+  <!-- Body copy -->
+  <text x="58" y="995" fill="#6B8FA8"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="15" font-weight="400"
+    letter-spacing=".1">
+    EV Now connects serious buyers with NZ's leading EV finance specialists.
+  </text>
+  <text x="58" y="1016" fill="#6B8FA8"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="15" font-weight="400"
+    letter-spacing=".1">
+    Fast approvals. Top lenders. Real car knowledge. Approved in hours, not weeks.
+  </text>
+
+  <!-- Divider line -->
+  <line x1="56" y1="1046" x2="738" y2="1046" stroke="#0D2030" stroke-width=".8"/>
+
+  <!-- Logo + URL row -->
+  <text x="58" y="1090" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="20" font-weight="700"
+    letter-spacing="2">
+    EV<tspan fill="#4AC0FF">NOW</tspan>
+  </text>
+
+  <text x="58" y="1110" fill="#2A5570"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="11" font-weight="400"
+    letter-spacing=".08em">
+    FINANCE FOR DRIVERS
+  </text>
+
+  <!-- URL right-aligned -->
+  <text x="738" y="1085" fill="#4AC0FF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="16" font-weight="600"
+    text-anchor="end" letter-spacing=".5">
+    evnow.co.nz
+  </text>
+  <text x="738" y="1104" fill="#2A5570"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="11" font-weight="400"
+    text-anchor="end" letter-spacing=".05em">
+    Check your rate in 2 minutes
+  </text>
+
+  <!-- QR placeholder -->
+  <rect x="684" y="1048" width="54" height="54" rx="4" fill="#040D18" stroke="#0D2030" stroke-width="1"/>
+  <text x="711" y="1079" fill="#1A3A55"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="9" font-weight="500"
+    text-anchor="middle" letter-spacing=".04em">
+    QR
+  </text>
+
+  <!-- Fine print -->
+  <text x="58" y="1116" fill="#1E3040"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="9" font-weight="400"
+    letter-spacing=".02em">
+    Finance subject to lending criteria and affordability test. EV Now is a credit referral service.
+  </text>
+
+  <!-- Top bar brand mark -->
+  <text x="58" y="42" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="15" font-weight="700"
+    letter-spacing="3" opacity=".9">
+    EV<tspan fill="#4AC0FF">NOW</tspan>
+  </text>
+  <line x1="56" y1="52" x2="738" y2="52" stroke="#0D2030" stroke-width=".8"/>
+
+  <!-- Top right feature label -->
+  <text x="738" y="42" fill="#2A5570"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="9" font-weight="500"
+    text-anchor="end" letter-spacing=".12em">
+    EV FINANCE · NEW ZEALAND
+  </text>
+
+  <!-- Subtle electric speed lines at ground -->
+  <g opacity=".07">
+    <line x1="0"   y1="663" x2="794" y2="660" stroke="#4AC0FF" stroke-width=".5"/>
+    <line x1="0"   y1="668" x2="794" y2="665" stroke="#4AC0FF" stroke-width=".3"/>
+    <line x1="0"   y1="674" x2="794" y2="671" stroke="#4AC0FF" stroke-width=".2"/>
+  </g>
+
+</svg>
+</div><!-- end .ad full page -->
+
+
+<p class="label">EV Now · Half Page Landscape · 794 × 560px</p>
+
+<!-- ════════════════════════════════════════ HALF PAGE AD ════════════════════════════════════════ -->
+<div class="ad-half">
+<svg width="794" height="560" viewBox="0 0 794 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg2" cx="38%" cy="55%" r="60%">
+      <stop offset="0%"   stop-color="#020B1A"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="aura2" cx="38%" cy="55%" r="50%">
+      <stop offset="0%"  stop-color="#0B3A5C" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#000"   stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="body2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1C2A3A"/>
+      <stop offset="100%" stop-color="#060B12"/>
+    </linearGradient>
+    <linearGradient id="glass2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0A2845" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#061830" stop-opacity=".88"/>
+    </linearGradient>
+    <radialGradient id="wheel2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#1E2E40"/>
+      <stop offset="100%" stop-color="#050C15"/>
+    </radialGradient>
+    <radialGradient id="pool2" cx="50%" cy="20%" r="50%">
+      <stop offset="0%"  stop-color="#0EA5E9" stop-opacity=".2"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="hglow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="794" height="560" fill="url(#bg2)"/>
+  <ellipse cx="300" cy="340" rx="320" ry="200" fill="url(#aura2)"/>
+
+  <!-- Ground -->
+  <rect x="0" y="400" width="794" height="160" fill="#000"/>
+  <line x1="0" y1="400" x2="794" y2="400" stroke="#0EA5E9" stroke-width=".5" opacity=".2"/>
+
+  <!-- Beam -->
+  <polygon points="38,360 38,390 -80,330 -80,420" fill="url(#beamGrad)" opacity=".7"/>
+
+  <!-- Ground pool -->
+  <ellipse cx="290" cy="400" rx="260" ry="32" fill="url(#pool2)"/>
+
+  <!-- ── CAR (scaled smaller for half page) ── -->
+  <g transform="translate(300,400) scale(0.78)">
+
+    <path d="M -295,0 C -300,0 -308,-12 -308,-20 L -305,-35
+      C -302,-48 -295,-58 -280,-68 L -240,-88
+      C -218,-100 -195,-112 -170,-120 L -130,-132
+      C -110,-137 -88,-142 -62,-145 L -10,-148
+      C 20,-149 55,-148 88,-146 L 155,-143
+      C 185,-141 210,-137 228,-130 L 268,-112
+      C 285,-104 295,-94 300,-82 L 308,-60
+      C 312,-46 312,-30 308,-18 L 305,-8
+      C 302,0 298,0 295,0 Z"
+      fill="url(#body2)"/>
+
+    <!-- Windshield -->
+    <path d="M -70,-143 L -62,-145 C -40,-148 -14,-149 14,-149 L -6,-102
+      C -22,-100 -38,-97 -52,-93 L -92,-80 C -108,-74 -122,-66 -134,-56
+      L -174,-22 L -232,-60 C -218,-78 -200,-92 -178,-104
+      L -142,-118 C -118,-128 -92,-135 -64,-140 Z"
+      fill="url(#glass2)"/>
+
+    <!-- Rear window -->
+    <path d="M 14,-149 C 46,-148 82,-146 120,-143 L 168,-137
+      C 196,-132 220,-126 238,-116 L 270,-98 L 305,-30
+      L 268,-18 L 262,-38 C 256,-58 240,-76 218,-88
+      L 180,-106 C 158,-116 132,-122 100,-126
+      L 50,-130 C 20,-132 -4,-132 -20,-130 L -6,-102 Z"
+      fill="url(#glass2)" opacity=".92"/>
+
+    <!-- Character line -->
+    <path d="M -295,-40 C -268,-45 -235,-52 -195,-58 L -148,-63
+      C -112,-67 -72,-69 -30,-69 L 55,-69
+      C 98,-68 140,-65 178,-58 L 232,-46 C 260,-38 282,-28 298,-16"
+      fill="none" stroke="#4AC0FF" stroke-width=".9"
+      filter="url(#glow2)" opacity=".8"/>
+
+    <!-- Headlight -->
+    <path d="M -308,-30 L -302,-70 L -262,-70 L -270,-30 Z" fill="#04101C"/>
+    <path d="M -300,-68 L -265,-68 L -268,-62 L -298,-62 Z"
+      fill="none" stroke="#4ACFFF" stroke-width="1.5" opacity=".9" filter="url(#hglow2)"/>
+    <circle cx="-284" cy="-50" r="3" fill="#80D4FF" opacity=".9" filter="url(#hglow2)"/>
+    <line x1="-305" y1="-36" x2="-272" y2="-34" stroke="#F59E0B" stroke-width="2" opacity=".6" filter="url(#hglow2)"/>
+
+    <!-- Tail light -->
+    <line x1="275" y1="-46" x2="304" y2="-44" stroke="#DC2626" stroke-width="2" opacity=".85" filter="url(#hglow2)"/>
+    <line x1="275" y1="-52" x2="302" y2="-50" stroke="#EF4444" stroke-width="1" opacity=".5"/>
+
+    <!-- Charge port -->
+    <circle cx="258" cy="-78" r="5" fill="#040E18" stroke="#1A4020" stroke-width=".8"/>
+    <circle cx="258" cy="-78" r="2" fill="#84CC16" opacity=".9" filter="url(#hglow2)"/>
+
+    <!-- Front wheel -->
+    <g transform="translate(-175,0)">
+      <circle r="62" fill="#04090F" stroke="#0D1C28" stroke-width="3"/>
+      <circle r="48" fill="url(#wheel2)" stroke="#0F2035" stroke-width="1.5"/>
+      <circle r="9" fill="#0A1828" stroke="#1A3555" stroke-width="1.5"/>
+      <circle r="4" fill="#1A4A7A"/>
+      <g stroke="#1E4060" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+        <line x1="0" y1="-9" x2="-14" y2="-46"/>
+        <line x1="9" y1="-2" x2="37" y2="-30"/>
+        <line x1="9" y1="4" x2="47" y2="12"/>
+        <line x1="4" y1="9" x2="24" y2="44"/>
+        <line x1="-4" y1="9" x2="-10" y2="47"/>
+        <line x1="-9" y1="4" x2="-44" y2="18"/>
+        <line x1="-9" y1="-2" x2="-45" y2="-14"/>
+        <line x1="-6" y1="-8" x2="-28" y2="-40"/>
+        <line x1="0" y1="-9" x2="10" y2="-47"/>
+        <line x1="6" y1="-8" x2="38" y2="-16"/>
+      </g>
+    </g>
+
+    <!-- Rear wheel -->
+    <g transform="translate(178,0)">
+      <circle r="62" fill="#04090F" stroke="#0D1C28" stroke-width="3"/>
+      <circle r="48" fill="url(#wheel2)" stroke="#0F2035" stroke-width="1.5"/>
+      <circle r="9" fill="#0A1828" stroke="#1A3555" stroke-width="1.5"/>
+      <circle r="4" fill="#1A4A7A"/>
+      <g stroke="#1E4060" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+        <line x1="0" y1="-9" x2="-14" y2="-46"/>
+        <line x1="9" y1="-2" x2="37" y2="-30"/>
+        <line x1="9" y1="4" x2="47" y2="12"/>
+        <line x1="4" y1="9" x2="24" y2="44"/>
+        <line x1="-4" y1="9" x2="-10" y2="47"/>
+        <line x1="-9" y1="4" x2="-44" y2="18"/>
+        <line x1="-9" y1="-2" x2="-45" y2="-14"/>
+        <line x1="-6" y1="-8" x2="-28" y2="-40"/>
+        <line x1="0" y1="-9" x2="10" y2="-47"/>
+        <line x1="6" y1="-8" x2="38" y2="-16"/>
+      </g>
+    </g>
+
+  </g><!-- end car -->
+
+  <!-- COPY — right panel -->
+  <line x1="570" y1="60" x2="570" y2="500" stroke="#0D2030" stroke-width=".8"/>
+
+  <text x="598" y="114" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="15" font-weight="700" letter-spacing="2">
+    EV<tspan fill="#4AC0FF">NOW</tspan>
+  </text>
+
+  <text x="598" y="185" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="38" font-weight="700" letter-spacing="-1.5">
+    Finance
+  </text>
+  <text x="598" y="230" fill="#FFFFFF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="38" font-weight="700" letter-spacing="-1.5">
+    for
+  </text>
+  <text x="598" y="275" fill="#4AC0FF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="38" font-weight="700" letter-spacing="-1.5">
+    drivers.
+  </text>
+
+  <line x1="598" y1="296" x2="758" y2="296" stroke="#0D2030" stroke-width=".8"/>
+
+  <text x="598" y="328" fill="#4B7A96"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="13" font-weight="400" letter-spacing=".05em">
+    NZ's top EV finance specialists.
+  </text>
+  <text x="598" y="348" fill="#4B7A96"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="13" font-weight="400" letter-spacing=".05em">
+    Approved in hours. Not weeks.
+  </text>
+
+  <text x="598" y="420" fill="#4AC0FF"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="15" font-weight="600" letter-spacing=".3">
+    evnow.co.nz
+  </text>
+  <text x="598" y="440" fill="#2A5570"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="11" font-weight="400" letter-spacing=".05em">
+    Check your rate in 2 minutes
+  </text>
+
+  <!-- QR placeholder -->
+  <rect x="690" y="455" width="48" height="48" rx="3" fill="#040D18" stroke="#0D2030" stroke-width="1"/>
+  <text x="714" y="483" fill="#1A3A55"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="8" text-anchor="middle">QR</text>
+
+  <text x="598" y="525" fill="#162030"
+    font-family="'Space Grotesk', sans-serif"
+    font-size="9">Finance subject to lending criteria. EV Now is a credit referral service.</text>
+
+</svg>
+</div><!-- end .ad-half -->
+
+</body>
+</html>
+
