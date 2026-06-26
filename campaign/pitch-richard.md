@@ -11,19 +11,21 @@
 
 Hey Richard,
 
-I had a proper look at evfinance.co.nz this week and I think there's a real opportunity being left on the table.
+I had a proper look at evfinance.co.nz this week and I think there's a real opportunity sitting right there.
 
-The product is right. The broker relationship is there. The audience you've got across your magazines is exactly the kind of person who buys an EV on finance. But the website and the marketing behind it aren't doing the product justice — there's no follow-up after someone fills in the form, no email sequence, no paid social, and the site itself doesn't really sell the savings story the way it could.
+The product is solid. The broker relationship is there. The audience you've built across your magazines is exactly the kind of person who buys an EV on finance. I just think the website and the marketing behind it could be doing a lot more for you.
 
-I've been building marketing automation stacks for exactly this kind of product and I've already put together the full package — a proper landing page, a five-email nurture sequence that goes out automatically after every enquiry, Meta and Instagram ad creative, and an editorial content framework. It's all ready to go.
+From what I can see there's no paid social running, and I'd imagine the leads that come through the form aren't getting much in the way of automated follow-up. I've put together the full package to fix that — a rebuilt landing page, a five-email nurture sequence that fires automatically after every enquiry, and Meta and Instagram ad creative ready to go. It's all built, just needs to be wired in.
 
-What I'd like to do is rebuild evfinance.co.nz properly and bolt all of that onto it. Better design, better copy, the savings calculator, the automated follow-up — the works. If we do this right, the same number of visitors converts at a significantly higher rate, and the leads that don't convert immediately get nurtured until they're ready.
+You mentioned 50% of commission on settled loans — that's genuinely generous and I really appreciate you putting that on the table. I'm not looking for anything upfront. Just get me access to the site source code so I can see what we're working with and I'll take it from there.
 
-You mentioned 50% of commission on settled loans. That works for me. I'm not looking for anything upfront — just give me access to the site source code so I can see what we're working with, and I'll get started.
-
-Happy to jump on a call this week if you want to talk it through first.
+Happy to jump on a call if you want to talk it through first.
 
 Josh
+
+JB Labs
+021 161 4366
+josh@jbse.co.nz
 
 JB Labs
 021 161 4366
